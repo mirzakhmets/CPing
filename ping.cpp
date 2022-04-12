@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include "CPing.h"
 #include <stdlib.h>
-
+#include <winsock.h>
 
 int PrUsage (char* sPath)
 {
@@ -73,7 +73,7 @@ int main (int argc, char** argv)
 		if (cvping) printf ("Connective ping\n");
 		else printf ("Continuous ping\n");
 		printf ("\nTotal requests: %d\nPort: %d\n\n", cping->iTotalRes, port);
-		for (i=0;i<cping->iTotalRes;i++)
+		for (int i=0;i<cping->iTotalRes;i++)
 		{
 			iStats[0] = ((cping->Res[i].iTimeRecv<iStats[0])?cping->Res[i].iTimeRecv:iStats[0]);
 			iStats[1] = ((cping->Res[i].iTimeRecv>iStats[1])?cping->Res[i].iTimeRecv:iStats[1]);
